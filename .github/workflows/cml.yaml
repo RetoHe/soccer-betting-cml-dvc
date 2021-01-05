@@ -28,7 +28,7 @@ jobs:
           python prepare_data.py
           
           # Reproduce pipeline if any changes detected in dependencies
-          #dvc repro 
+          cat testscore.txt >> report.md
           
           # Use DVC metrics diff to compare metrics to master
           #git fetch --prune --unshallow
