@@ -26,7 +26,7 @@ jobs:
           
           # run Data Preparation
           python prepare_data.py
-          
+          python model.py
           # Reproduce pipeline if any changes detected in dependencies
           cat testscore.txt >> report.md
           
