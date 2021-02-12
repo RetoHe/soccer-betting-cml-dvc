@@ -40,4 +40,5 @@ logistic_model.fit(X_train, y_train)
 logistic_prediction = logistic_model.predict(X_test)
 test_score = round(logistic_model.score(X_test, y_test),2)
 with open("testscore.txt", "w") as f:
+    print("Test Score Logistic Regression", file=f)
     print(test_score, file=f)
