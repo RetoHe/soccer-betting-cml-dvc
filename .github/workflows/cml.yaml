@@ -28,14 +28,17 @@ jobs:
           python prepare_data.py
           python model.py
           python strategy_one.py
+          python historical_analysis.py
           # Reproduce pipeline if any changes detected in dependencies
           cat testscore.txt >> report.md
-           cat score.txt >> score.md
+          cat score.txt >> score.md
+          cat historical_score.txt >> history.md
           # Use DVC metrics diff to compare metrics to master
           #git fetch --prune --unshallow
           #dvc metrics diff --show-md master >> report.md
           cml-send-comment report.md 
-          cml-send-comment score.md 
+          cml-send-comment score.md
+          cml-send-comment history.md 
           # Add figure to report
           #dvc plots diff --target loss.csv --show-vega master > vega.json
           #vl2png vega.json -s 1.5 | cml-publish --md  >> report.md
