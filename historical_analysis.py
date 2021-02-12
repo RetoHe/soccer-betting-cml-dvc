@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
-directory = "../data/historicaldata"
+directory = "data/historicaldata"
 files = os.listdir(directory)
 
 season = []
