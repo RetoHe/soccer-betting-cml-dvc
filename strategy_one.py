@@ -23,4 +23,5 @@ for i in range(len(data)):
         score_gap_list.append(0)
 
 with open("score.txt", "w") as f:
+    print("Score Strategy Gap", file=f)
     print(score_gap, file=f)
