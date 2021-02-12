@@ -38,7 +38,19 @@ from sklearn.linear_model import LogisticRegression
 logistic_model = LogisticRegression()
 logistic_model.fit(X_train, y_train)
 logistic_prediction = logistic_model.predict(X_test)
-test_score = round(logistic_model.score(X_test, y_test),2)
+test_score_log = round(logistic_model.score(X_test, y_test),2)
+
+# SVM Model
+from sklearn import svm
+
+svm_model = svm.SVC(decision_function_shape='ovo')
+svm_model.fit(X_train, y_train)
+svm_prediction = svm_model.predict(X_test)
+test_score_svm = round(svm_model.score(X_test, y_test),2)
+
 with open("testscore.txt", "w") as f:
     print("Test Score Logistic Regression", file=f)
-    print(test_score, file=f)
+    print(test_score_log, file=f)
+    print("Test Score SVM", file=f)
+    print(test_score_svm, file=f)
+    
