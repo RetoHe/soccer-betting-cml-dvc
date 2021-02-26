@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 directory = "data/historicaldata"
 files = os.listdir(directory)
 
+results_df = pd.DataFrame()
 season = []
 scores = []
 for file in files:
