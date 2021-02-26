@@ -33,7 +33,7 @@ jobs:
           cat testscore.txt >> report.md
           cat score.txt >> score.md
           cat historical_score.txt >> history.md
-          cml-publish outout.png --md >> graph.md
+          cml-publish output.png --md >> graph.md
           # Use DVC metrics diff to compare metrics to master
           #git fetch --prune --unshallow
           #dvc metrics diff --show-md master >> report.md
