@@ -12,27 +12,24 @@ for file in files:
     score_gap_list = []
     score_gap = 0
     for i in range(len(data)):
-        gap = data["B365A"][i] - data["B365H"][i]
-        if gap >= 5 and data["FTR"][i] == "H":
-            score_gap += ((data["B365H"][i]*5)-5)
-            score_gap_list.append(((data["B365H"][i]*5)-5))
-       # elif gap <= 5 and gap >= 3 and data["FTR"][i] == "H":
-            # += ((data["B365H"][i]*3)-3)
-            #score_gap_list.append(((data["B365H"][i]*3)-3))
-        elif gap <= -5 and data["FTR"][i] == "A":
-            score_gap += ((data["B365A"][i]*5)-5)
-            score_gap_list.append(((data["B365A"][i]*5)-5))
-        #elif gap >= -5 and gap <= -3 and data["FTR"][i] == "A":
-            #score_gap += ((data["B365A"][i]*3)-3)
-            #score_gap_list.append(((data["B365A"][i]*3)-3))
-        elif gap >= 5 and data["FTR"][i] != "H":
-            score_gap += -5
-        #elif gap <= 5 and gap >= 3 and data["FTR"][i] != "H":
-            #score_gap += -3
-        elif gap <= -5 and data["FTR"][i] != "A":
-            score_gap += -5
-        #elif gap >= -5 and gap <= -3 and data["FTR"][i] != "A":
-            #score_gap += -3
+        if data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] == "H":
+            score_gap += ((data["B365H"][i]*1)-1)
+            score_gap_list.append(((data["B365H"][i]*1)-1))
+        elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] == "A":
+            score_gap += ((data["B365A"][i]*1)-1)
+            score_gap_list.append(((data["B365A"][i]*1)-1))
+        elif data["B365D"][i] < data["B365H"][i] and data["B365D"][i] < data["B365A"][i] and data["FTR"][i] == "D":
+            score_gap += ((data["B365D"][i]*1)-1)
+            score_gap_list.append(((data["B365D"][i]*1)-1))
+        elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] != "A":
+            score_gap += -1
+            score_gap_list.append(-1)
+        elif data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] != "H":
+            score_gap += -1
+            score_gap_list.append(-1)
+        elif data["B365D"][i] < data["B365H"][i] and data["B365D"][i] < data["B365A"][i] and data["FTR"][i] != "D":
+            score_gap += -1
+            score_gap_list.append(-1)
         else:
             score_gap_list.append(0)
     season.append(file)
