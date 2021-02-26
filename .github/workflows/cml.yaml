@@ -33,12 +33,15 @@ jobs:
           cat testscore.txt >> report.md
           cat score.txt >> score.md
           cat historical_score.txt >> history.md
+          cml-publish outout.png --md >> graph.md
           # Use DVC metrics diff to compare metrics to master
           #git fetch --prune --unshallow
           #dvc metrics diff --show-md master >> report.md
           cml-send-comment report.md 
           cml-send-comment score.md
-          cml-send-comment history.md 
+          cml-send-comment history.md
+          cml-send-comment graph.md
+
           # Add figure to report
           #dvc plots diff --target loss.csv --show-vega master > vega.json
           #vl2png vega.json -s 1.5 | cml-publish --md  >> report.md
