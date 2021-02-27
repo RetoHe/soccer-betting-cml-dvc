@@ -29,6 +29,9 @@ jobs:
           python model.py
           python strategy_one.py
           python historical_analysis_outsider_GER.py
+          python historical_analysis_fav_GER.py
+          python historical_analysis_strategy1_GER.py
+
           python historical_analysis_fav_ENG.py
           python historical_analysis_fav_ESP.py
           python historical_analysis_fav_BEL.py
@@ -41,8 +44,10 @@ jobs:
 
           cat historical_score_Favourite_GER.txt >> history_GER.md
           cat historical_score_Outsider_GER.txt >> history_GER.md
+          cat historical_score_Strategy1_GER.txt >> history_GER.md
           cml-publish output_outsider_GER.png --md >> history_GER.md
           cml-publish output_fav_GER.png --md >> history_GER.md
+          cml-publish output_strategy1_GER.png --md >> history_GER.md
 
         
           cat historical_score_ENG.txt >> history_ENG.md
