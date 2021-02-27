@@ -61,5 +61,5 @@ with open("historical_score_FRA.txt", "w") as f:
     print(scores[2], file=f)
     print(season[3], file=f)
     print(scores[3], file=f)
-    print(season[4], file=f)
-    print(scores[4], file=f)
+    #print(season[4], file=f)
+    #print(scores[4], file=f)
