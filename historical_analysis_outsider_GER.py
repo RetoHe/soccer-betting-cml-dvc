@@ -17,7 +17,7 @@ for file in files:
     cum_score_gap_list = []
     for i in range(len(data)):
         if data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] == "A":
-            score_gap += ((data["B365"][i]*1)-1)
+            score_gap += ((data["B365A"][i]*1)-1)
             score_gap_list.append(((data["B365A"][i]*1)-1))
             cum_score_gap_list.append(score_gap)
         elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] == "H":
