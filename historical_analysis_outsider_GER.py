@@ -53,7 +53,7 @@ plt.title("Outsider Strategy Germany Bundesliag")
 plt.savefig("output_outsider_GER.png")
 
 with open("historical_score_Outsider_GER.txt", "w") as f:
-    print("Historical Analysis:", file=f)
+    print("Historical Analysis Outsider:", file=f)
     print(season[0], file=f)
     print(scores[0], file=f)
     print(season[1], file=f)

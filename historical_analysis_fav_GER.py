@@ -16,23 +16,23 @@ for file in files:
     score_gap = 0
     cum_score_gap_list = []
     for i in range(len(data)):
-        if data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] == "A":
-            score_gap += ((data["B365A"][i]*1)-1)
-            score_gap_list.append(((data["B365A"][i]*1)-1))
-            cum_score_gap_list.append(score_gap)
-        elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] == "H":
+        if data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] == "H":
             score_gap += ((data["B365H"][i]*1)-1)
             score_gap_list.append(((data["B365H"][i]*1)-1))
+            cum_score_gap_list.append(score_gap)
+        elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] == "A":
+            score_gap += ((data["B365A"][i]*1)-1)
+            score_gap_list.append(((data["B365A"][i]*1)-1))
             cum_score_gap_list.append(score_gap)
         #elif data["B365D"][i] < data["B365H"][i] and data["B365D"][i] < data["B365A"][i] and data["FTR"][i] == "D":
             #score_gap += ((data["B365D"][i]*1)-1)
             #score_gap_list.append(((data["B365D"][i]*1)-1))
             #cum_score_gap_list.append(score_gap)
-        elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] != "H":
+        elif data["B365A"][i] < data["B365H"][i] and data["B365A"][i] < data["B365D"][i] and data["FTR"][i] != "A":
             score_gap += -1
             score_gap_list.append(-1)
             cum_score_gap_list.append(score_gap)
-        elif data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] != "A":
+        elif data["B365H"][i] < data["B365A"][i] and data["B365H"][i] < data["B365D"][i] and data["FTR"][i] != "H":
             score_gap += -1
             score_gap_list.append(-1)
             cum_score_gap_list.append(score_gap)
@@ -53,7 +53,7 @@ plt.title("Favourite Strategy Germany Bundesliag")
 plt.savefig("output_fav_GER.png")
 
 with open("historical_score_Favourite_GER.txt", "w") as f:
-    print("Historical Analysis:", file=f)
+    print("Historical Analysis Favourite:", file=f)
     print(season[0], file=f)
     print(scores[0], file=f)
     print(season[1], file=f)

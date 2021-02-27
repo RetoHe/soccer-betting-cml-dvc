@@ -18,10 +18,10 @@ for file in files:
     for i in range(len(data)):
         # Calculate Difference Homewin and Awaywin
         gap = data["B365H"][i] - data["B365A"][i]
-        # Wenn Differenz größer 5 zwischen Heimsieg und Auswärtssieg, dann Einssatz 3EH auf Heimsieg
+        # Wenn Differenz größer 5 zwischen Heimsieg und Auswärtssieg, dann Einssatz 5EH auf Heimsieg
         if gap <= -5 and data["FTR"][i] == "H":
-            score_gap += ((data["B365H"][i]*3)-3)
-            score_gap_list.append(((data["B365H"][i]*1)-1))
+            score_gap += ((data["B365H"][i]*5)-5)
+            score_gap_list.append(((data["B365H"][i]*5)-5))
             cum_score_gap_list.append(score_gap)
          # Wenn Differenz zwischen 2 und 5 zwischen Heimsieg und Auswärtssieg, dann Einssatz 1EH auf Heimsieg   
         elif gap > -5 and gap <= -2 and data["FTR"][i] == "H":
@@ -68,7 +68,7 @@ plt.title("Strategy1 Germany Bundesliga")
 plt.savefig("output_strategy1_GER.png")
 
 with open("historical_score_Strategy1_GER.txt", "w") as f:
-    print("Historical Analysis:", file=f)
+    print("Historical Analysis Strategy1:", file=f)
     print(season[0], file=f)
     print(scores[0], file=f)
     print(season[1], file=f)
