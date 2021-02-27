@@ -49,10 +49,10 @@ for file in files:
 
 plt.figure()
 sns.lineplot(data=results_df)
-plt.title("Outsider Strategy Germany Bundesliag")
-plt.savefig("output_outsider_GER.png")
+plt.title("Favourite Strategy Germany Bundesliag")
+plt.savefig("output_fav_GER.png")
 
-with open("historical_score_Outsider_GER.txt", "w") as f:
+with open("historical_score_Favourite_GER.txt", "w") as f:
     print("Historical Analysis:", file=f)
     print(season[0], file=f)
     print(scores[0], file=f)

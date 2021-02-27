@@ -38,20 +38,31 @@ jobs:
           # Reproduce pipeline if any changes detected in dependencies
           cat testscore.txt >> report.md
           cat score.txt >> score.md
-          cat historical_score_GER.txt >> history_GER.md
-          cml-publish output_GER.png --md >> history_GER.md
+
+          cat historical_score_Favourite_GER.txt >> history_GER.md
+          cat historical_score_Outsider_GER.txt >> history_GER.md
+          cml-publish output_outsider_GER.png --md >> history_GER.md
+          cml-publish output_fav_GER.png --md >> history_GER.md
+
+        
           cat historical_score_ENG.txt >> history_ENG.md
           cml-publish output_ENG.png --md >> history_ENG.md
+
           cat historical_score_ESP.txt >> history_ESP.md
           cml-publish output_ESP.png --md >> history_ESP.md
+
           cat historical_score_BEL.txt >> history_BEL.md
           cml-publish output_BEL.png --md >> history_BEL.md
+
           cat historical_score_FRA.txt >> history_FRA.md
           cml-publish output_FRA.png --md >> history_FRA.md
+
           cat historical_score_ITA.txt >> history_ITA.md
           cml-publish output_ITA.png --md >> history_ITA.md
+
           cat historical_score_NED.txt >> history_NED.md
           cml-publish output_NED.png --md >> history_NED.md
+          
           # Use DVC metrics diff to compare metrics to master
           #git fetch --prune --unshallow
           #dvc metrics diff --show-md master >> report.md
