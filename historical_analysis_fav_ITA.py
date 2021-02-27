@@ -49,6 +49,7 @@ for file in files:
 
 plt.figure()
 sns.lineplot(data=results_df)
+plt.title("Favourite Strategy")
 plt.savefig("output_ITA.png")
 
 with open("historical_score_ITA.txt", "w") as f:

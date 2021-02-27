@@ -28,13 +28,13 @@ jobs:
           python prepare_data.py
           python model.py
           python strategy_one.py
-          python historical_analysis_GER.py
-          python historical_analysis_ENG.py
-          python historical_analysis_ESP.py
-          python historical_analysis_BEL.py
-          python historical_analysis_FRA.py
-          python historical_analysis_ITA.py
-          python historical_analysis_NED.py
+          python historical_analysis_outsider_GER.py
+          python historical_analysis_fav_ENG.py
+          python historical_analysis_fav_ESP.py
+          python historical_analysis_fav_BEL.py
+          python historical_analysis_fav_FRA.py
+          python historical_analysis_fav_ITA.py
+          python historical_analysis_fav_NED.py
           # Reproduce pipeline if any changes detected in dependencies
           cat testscore.txt >> report.md
           cat score.txt >> score.md

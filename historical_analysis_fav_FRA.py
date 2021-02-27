@@ -4,7 +4,7 @@ import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-directory = "data/historicaldata/Spanien"
+directory = "data/historicaldata/Frankreich"
 files = os.listdir(directory)
 
 results_df = pd.DataFrame()
@@ -49,9 +49,10 @@ for file in files:
 
 plt.figure()
 sns.lineplot(data=results_df)
-plt.savefig("output_ESP.png")
+plt.title("Favourite Strategy")
+plt.savefig("output_FRA.png")
 
-with open("historical_score_ESP.txt", "w") as f:
+with open("historical_score_FRA.txt", "w") as f:
     print("Historical Analysis:", file=f)
     print(season[0], file=f)
     print(scores[0], file=f)
@@ -61,5 +62,5 @@ with open("historical_score_ESP.txt", "w") as f:
     print(scores[2], file=f)
     print(season[3], file=f)
     print(scores[3], file=f)
-    print(season[4], file=f)
-    print(scores[4], file=f)
+    #print(season[4], file=f)
+    #print(scores[4], file=f)
