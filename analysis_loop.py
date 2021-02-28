@@ -5,52 +5,55 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 directory = "data/historicaldata/Deutschland"
-files = os.listdir(directory)
 
+overdirectory= "data/historicaldata"
+folders = ["Spanien", "Deutschland", "Belgien", "Niederlande", "Italien", "Frankreich", "England"]
 
 season = []
 scores = []
 gap_steps = [1,3,5,7]
-for file in files:
-    data = pd.read_csv(str(directory+"/"+file))
-    results_df = pd.DataFrame()
-    for element in gap_steps:
-        score_gap_list = []
-        score_gap = 0
-        cum_score_gap_list = []
-        for i in range(len(data)):
-            # Calculate Difference Homewin and Awaywin
-            gap = data["B365H"][i] - data["B365A"][i]
-            # Wenn Differenz größer 5 zwischen Heimsieg und Auswärtssieg, dann Einssatz 5EH auf Heimsieg
-            if gap <= - element and data["FTR"][i] == "H":
-                score_gap += ((data["B365H"][i]*1)-1)
-                score_gap_list.append(((data["B365H"][i]*1)-1))
-                cum_score_gap_list.append(score_gap)
-            # Wenn Auswärtsteam favorit um mehr als 2, dann 3H auf Auswärtssieg
-            elif gap > element and data["FTR"][i] == "A":
-                score_gap += ((data["B365A"][i]*1)-1)
-                score_gap_list.append(((data["B365A"][i]*1)-1))
-                cum_score_gap_list.append(score_gap)
-            # Evtl. Verluste berechnen    
-            elif gap <= - element and data["FTR"][i] != "H":
-                score_gap += -1
-                score_gap_list.append(-1)
-                cum_score_gap_list.append(score_gap)
-            elif gap > element and data["FTR"][i] != "A":
-                score_gap += -1
-                score_gap_list.append(-1)
-                cum_score_gap_list.append(score_gap)
-            else:
-                score_gap_list.append(0)
-                cum_score_gap_list.append(score_gap)
-        season.append(file)
-        scores.append(score_gap)
-        results_df["output_{}_{}_GER".format(file, element)] = cum_score_gap_list
 
-    plt.figure()
-    sns.lineplot(data=results_df)
-    plt.title("output_{}_GER".format(file))
-    plt.savefig("output_{}_GER.png".format(file))
+for folder in folders:
+    for file in files:
+        data = pd.read_csv(str(overdirectory+"/"+folder+"/"+file))
+        results_df = pd.DataFrame()
+        for element in gap_steps:
+            score_gap_list = []
+            score_gap = 0
+            cum_score_gap_list = []
+            for i in range(len(data)):
+                # Calculate Difference Homewin and Awaywin
+                gap = data["B365H"][i] - data["B365A"][i]
+                # Wenn Differenz größer 5 zwischen Heimsieg und Auswärtssieg, dann Einssatz 5EH auf Heimsieg
+                if gap <= - element and data["FTR"][i] == "H":
+                    score_gap += ((data["B365H"][i]*1)-1)
+                    score_gap_list.append(((data["B365H"][i]*1)-1))
+                    cum_score_gap_list.append(score_gap)
+                # Wenn Auswärtsteam favorit um mehr als 2, dann 3H auf Auswärtssieg
+                elif gap > element and data["FTR"][i] == "A":
+                    score_gap += ((data["B365A"][i]*1)-1)
+                    score_gap_list.append(((data["B365A"][i]*1)-1))
+                    cum_score_gap_list.append(score_gap)
+                # Evtl. Verluste berechnen    
+                elif gap <= - element and data["FTR"][i] != "H":
+                    score_gap += -1
+                    score_gap_list.append(-1)
+                    cum_score_gap_list.append(score_gap)
+                elif gap > element and data["FTR"][i] != "A":
+                    score_gap += -1
+                    score_gap_list.append(-1)
+                    cum_score_gap_list.append(score_gap)
+                else:
+                    score_gap_list.append(0)
+                    cum_score_gap_list.append(score_gap)
+            season.append(file)
+            scores.append(score_gap)
+            results_df["output_{}_{}_GER".format(file, element)] = cum_score_gap_list
+
+        plt.figure()
+        sns.lineplot(data=results_df)
+        plt.title("output_{}_GER".format(file))
+        plt.savefig("output_{}_GER.png".format(file))
 
 #with open("historical_{}_{}__GER.txt".format(file, element), "w") as f:
     #print("Historical Analysis {}_{}_:".format(file, element), file=f)
