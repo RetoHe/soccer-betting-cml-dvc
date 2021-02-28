@@ -14,8 +14,7 @@ scores = []
 gap_steps = [1,3,5,7]
 
 for folder in folders:
-    files = os.listdir(overdirectory+folder)
-    
+    files = os.listdir(overdirectory+"/"+folder)
     for file in files:
         data = pd.read_csv(str(overdirectory+"/"+folder+"/"+file))
         results_df = pd.DataFrame()
