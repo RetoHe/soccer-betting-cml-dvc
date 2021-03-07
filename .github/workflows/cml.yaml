@@ -26,8 +26,8 @@ jobs:
           
           # run Data Preparation
           python prepare_data.py
-          python model.py
-          python strategy_one.py
+          #python model.py
+          #python strategy_one.py
           python analysis_loop.py
           
           # Reproduce pipeline if any changes detected in dependencies
