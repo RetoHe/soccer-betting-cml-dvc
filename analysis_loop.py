@@ -12,12 +12,13 @@ folders = ["Spanien", "Deutschland", "Belgien", "Niederlande", "Italien", "Frank
 season = []
 scores = []
 gap_steps = [1,3,5,7]
-
+x = 0
 for folder in folders:
     files = os.listdir(overdirectory+"/"+folder)
     for file in files:
         data = pd.read_csv(str(overdirectory+"/"+folder+"/"+file))
         results_df = pd.DataFrame()
+        x += 1
         for element in gap_steps:
             score_gap_list = []
             score_gap = 0
@@ -54,7 +55,7 @@ for folder in folders:
         plt.figure()
         sns.lineplot(data=results_df)
         plt.title("output_{}".format(file))
-        plt.savefig("output_{}.png".format(file))
+        plt.savefig("output_{}.png".format(x))
         plt.close()
 
 #with open("historical_{}_{}__GER.txt".format(file, element), "w") as f:
