@@ -29,58 +29,55 @@ jobs:
           python model.py
           python strategy_one.py
           python analysis_loop.py
-          python historical_analysis_outsider_GER.py
-          python historical_analysis_fav_GER.py
-          python historical_analysis_strategy1_GER.py
-
-          python historical_analysis_fav_ENG.py
-          python historical_analysis_fav_ESP.py
-          python historical_analysis_fav_BEL.py
-          python historical_analysis_fav_FRA.py
-          python historical_analysis_fav_ITA.py
-          python historical_analysis_fav_NED.py
+          
           # Reproduce pipeline if any changes detected in dependencies
           cat testscore.txt >> report.md
           cat score.txt >> score.md
 
-          cat historical_score_Favourite_GER.txt >> history_GER.md
-          cat historical_score_Outsider_GER.txt >> history_GER.md
-          cat historical_score_Strategy1_GER.txt >> history_GER.md
-          cml-publish output_outsider_GER.png --md >> history_GER.md
-          cml-publish output_fav_GER.png --md >> history_GER.md
-          cml-publish output_strategy1_GER.png --md >> history_GER.md
+          cml-publish output_BELGIEN_2015_2016.csv.png --md >> score.md
+          cml-publish output_BELGIEN_2016_2017.csv.png --md >> score.md
+          cml-publish output_BELGIEN_2017_2018.csv.png --md >> score.md
+          cml-publish output_BELGIEN_2018_2019.csv.png --md >> score.md
 
-        
-          cat historical_score_ENG.txt >> history_ENG.md
-          cml-publish output_ENG.png --md >> history_ENG.md
+          cml-publish output_FL_2015_2016.csv.png --md >> score.md
+          cml-publish output_FL_2016_2017.csv.png --md >> score.md
+          cml-publish output_FL_2017_2018.csv.png --md >> score.md
+          cml-publish output_FL_2018_2019.csv.png --md >> score.md
 
-          cat historical_score_ESP.txt >> history_ESP.md
-          cml-publish output_ESP.png --md >> history_ESP.md
+          cml-publish output_GER_BL_2015_2016.csv.png --md >> score.md
+          cml-publish output_GER_BL_2016_2017.csv.png --md >> score.md
+          cml-publish output_GER_BL_2017_2018.csv.png --md >> score.md
+          cml-publish output_GER_BL_2018_2019.csv.png --md >> score.md
+          cml-publish output_GER_BL_2019_2020.csv.png --md >> score.md
 
-          cat historical_score_BEL.txt >> history_BEL.md
-          cml-publish output_BEL.png --md >> history_BEL.md
+          cml-publish output_IL_2015_2016.csv.png --md >> score.md
+          cml-publish output_IL_2016_2017.csv.png --md >> score.md
+          cml-publish output_IL_2017_2018.csv.png --md >> score.md
+          cml-publish output_IL_2018_2019.csv.png --md >> score.md
+          cml-publish output_IL_2019_2020.csv.png --md >> score.md
 
-          cat historical_score_FRA.txt >> history_FRA.md
-          cml-publish output_FRA.png --md >> history_FRA.md
+          cml-publish output_NL_2015_2016.csv.png --md >> score.md
+          cml-publish output_NL_2016_2017.csv.png --md >> score.md
+          cml-publish output_NL_2017_2018.csv.png --md >> score.md
+          cml-publish output_NL_2018_2019.csv.png --md >> score.md
 
-          cat historical_score_ITA.txt >> history_ITA.md
-          cml-publish output_ITA.png --md >> history_ITA.md
+          cml-publish output_PL_2015_2016.csv.png --md >> score.md
+          cml-publish output_PL_2016_2017.csv.png --md >> score.md
+          cml-publish output_PL_2017_2018.csv.png --md >> score.md
+          cml-publish output_PL_2018_2019.csv.png --md >> score.md
+          cml-publish output_PL_2019_2020.csv.png --md >> score.md
 
-          cat historical_score_NED.txt >> history_NED.md
-          cml-publish output_NED.png --md >> history_NED.md
+          cml-publish output_SL_2015_2016.csv.png --md >> score.md
+          cml-publish output_SL_2016_2017.csv.png --md >> score.md
+          cml-publish output_SL_2017_2018.csv.png --md >> score.md
+          cml-publish output_SL_2018_2019.csv.png --md >> score.md
+          cml-publish output_SL_2019_2020.csv.png --md >> score.md  
           
           # Use DVC metrics diff to compare metrics to master
           #git fetch --prune --unshallow
           #dvc metrics diff --show-md master >> report.md
           cml-send-comment report.md 
           cml-send-comment score.md
-          cml-send-comment history_GER.md
-          cml-send-comment history_ENG.md
-          cml-send-comment history_ESP.md
-          cml-send-comment history_BEL.md
-          cml-send-comment history_FRA.md
-          cml-send-comment history_ITA.md
-          cml-send-comment history_NED.md
 
           # Add figure to report
           #dvc plots diff --target loss.csv --show-vega master > vega.json

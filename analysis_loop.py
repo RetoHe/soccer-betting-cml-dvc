@@ -53,8 +53,8 @@ for folder in folders:
 
         plt.figure()
         sns.lineplot(data=results_df)
-        plt.title("output_{}_GER".format(file))
-        plt.savefig("output_{}_GER.png".format(file))
+        plt.title("output_{}".format(file))
+        plt.savefig("output_{}.png".format(file))
         plt.close()
 
 #with open("historical_{}_{}__GER.txt".format(file, element), "w") as f:
